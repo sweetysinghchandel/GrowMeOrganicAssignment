@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { useEffect } from 'react';
-import { TextField, Button, Container, Box } from '@mui/material';
+import { TextField, Container, Box, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -20,21 +19,16 @@ const UserForm = () => {
       ...userData,
       [name]: value,
     });
+    localStorage.setItem('userData', JSON.stringify({
+      ...userData,
+      [name]: value,
+    }));
   };
-  const [data, setData] = useState([]);
 
-useEffect(() => {
-  localStorage.setItem('dataKey', JSON.stringify(data));
-}, [data]);
 
   const handleSubmit = (e : any) => {
     e.preventDefault();
-    // Handle form submission here (e.g., send data to backend, validate, etc.)
-    console.log(userData);
-    // You can perform further actions with the form data
-  };
-   const handleButtonClick = () => {
-    // Change the route when the button is clicked
+
     navigate('/detail');
   };
   
@@ -74,9 +68,9 @@ useEffect(() => {
             required
           />
           
-          <button onClick={handleButtonClick} color="primary">
+          <Button type='submit'  color="primary">
             submit
-          </button>
+          </Button>
         </form>
       </Box>
     </Container>

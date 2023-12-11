@@ -9,7 +9,7 @@ type Post = {
   body: string;
 };
 
-const YourComponent: React.FC = () => {
+const TableDetail: React.FC = () => {
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -35,7 +35,7 @@ const YourComponent: React.FC = () => {
     { field: 'userId', headerName: 'User ID', width: 120 },
   ];
   return (
-    <div style={{ height: 400, width: '100%' }}>
+    <div style={{ height: 600, width: '100%' }}>
         
 
         
@@ -47,19 +47,8 @@ const YourComponent: React.FC = () => {
         <DataGrid
         rows={posts}
         columns={columns}
-        pageSize={5}
-        rowsPerPageOptions={[5, 10, 20]}
         checkboxSelection
       />
-        {/* <ul>
-          {posts.map((post) => (
-            <li key={post.id}>
-              <h2>{post.title}</h2>
-              <p>{post.body}</p>
-              <p>UserId: {post.userId}</p>
-            </li>
-          ))}
-        </ul> */}
         </>
       )}
       <DepartmentList/>
@@ -67,7 +56,7 @@ const YourComponent: React.FC = () => {
   );
 };
 
-export default YourComponent;
+export default TableDetail;
 
      
 
